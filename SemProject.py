@@ -73,6 +73,7 @@ while True:
         cv2.putText(img,b[0],(_x,h-_y+25),cv2.FONT_HERSHEY_COMPLEX,1,(50,50,255),2)
 
     cv2.cvtColor(img,cv2.CLOLOR_RGB2BGR)
+    cv2.add(frame,img)
     cv2.imshow('nanoCam',frame)
     cv2.moveWindow('nanoCam',0,0)
     
