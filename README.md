@@ -53,6 +53,15 @@ I’ve worked in **corporate** and **startup** environments, contributing to lar
 
 ## 🚀 Featured Projects
 
+### 🛒 [ShopFlow – .NET 8 Microservices E-commerce](https://github.com/talhazubairasim/shopflow)
+An **e-commerce platform** split into six .NET 8 services behind a YARP API gateway, with a React + TypeScript storefront.
+- Checkout is a **MassTransit saga over RabbitMQ**: reserve stock → charge card → confirm, with compensation (stock released, order cancelled) when a step fails.
+- CQRS with MediatR + FluentValidation, optimistic-concurrency stock reservations, Redis baskets, JWT auth with roles, OpenTelemetry and health checks.
+- CI runs unit, API and saga tests, then boots the whole stack with Docker Compose and drives real checkouts end to end; Kubernetes manifests included.
+- **Tech:** .NET 8, ASP.NET Core, MassTransit, RabbitMQ, EF Core, PostgreSQL, Redis, YARP, React, Tailwind CSS, Docker, Kubernetes.
+
+---
+
 ### 🧱 [TaskBoard – Go + React](https://github.com/talhazubairasim/taskboard-go-react)
 A **Kanban-style task management system** with a Go backend and a React + TypeScript frontend.
 - GraphQL API (queries, mutations, real-time subscriptions over WebSocket) **and** a REST API, both on one service layer.
