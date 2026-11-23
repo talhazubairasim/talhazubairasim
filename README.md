@@ -20,12 +20,13 @@ I’ve worked in **corporate** and **startup** environments, contributing to lar
 ## 🛠️ Tech Stack
 
 ### 💻 Backend
-- **Languages:** C#, Python, Node.js (basic)
-- **Frameworks:** ASP.NET Core (MVC, Web API, Razor), Entity Framework Core, LINQ
-- **Architectures:** RESTful APIs, Microservices, Monolith-to-Microservices migrations
+- **Languages:** C#, TypeScript, Go, Python, Node.js (basic)
+- **Frameworks:** ASP.NET Core (MVC, Web API, Minimal APIs, Razor), Entity Framework Core, LINQ, MediatR, FluentValidation, YARP
+- **Architectures:** RESTful APIs, Microservices, Event Sourcing & CQRS, Sagas, Multi-tenant SaaS, Monolith-to-Microservices migrations
 - **Authentication:** JWT, OAuth 2.0, Identity Server
-- **Caching & Messaging:** Redis, Apache Kafka
-- **ORM / Database:** Entity Framework, Dapper
+- **Caching & Messaging:** Redis, RabbitMQ, MassTransit, Apache Kafka
+- **ORM / Database:** Entity Framework, Dapper, Npgsql
+- **Testing:** xUnit, Testcontainers, Vitest, React Testing Library
 
 ### ⚛️ Frontend
 - **Libraries/Frameworks:** React.js, Blazor, jQuery
