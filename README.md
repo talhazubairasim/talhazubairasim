@@ -54,30 +54,31 @@ I’ve worked in **corporate** and **startup** environments, contributing to lar
 ## 🚀 Featured Projects
 
 ### 🧱 [TaskBoard – Go + React](https://github.com/talhazubairasim/taskboard-go-react)
-A **Kanban-style task management system** built using Go (backend) and React (frontend).  
-- Features CRUD operations, JWT authentication, and real-time updates.  
-- Implements clean architecture with a clear separation between service, repository, and handlers.  
-- **Tech:** Go, React.js, REST API, PostgreSQL.
+A **Kanban-style task management system** with a Go backend and a React + TypeScript frontend.
+- GraphQL API (queries, mutations, real-time subscriptions over WebSocket) **and** a REST API, both on one service layer.
+- Clean architecture: handlers/resolvers → services → repositories, JWT auth with refresh tokens, Redis caching.
+- 97% backend / 99% frontend test coverage enforced in CI; Docker Compose and Kubernetes manifests.
+- **Tech:** Go, gqlgen, PostgreSQL, Redis, React, Apollo Client, Tailwind CSS, Docker, Kubernetes.
 
 ---
 
 ### 🧭 [Hotel Management System – ASP.NET Core](https://github.com/talhazubairasim/Hotel-Management)
-A **workflow management system** for handling Hotels and Rooms requests in enterprises. (Demo) 
-- Custom middleware for OWASP security headers.  
-- Dynamic form validation, role-based access control, and workflow automation.  
-- **Tech:** ASP.NET Core MVC, SQL Server, JavaScript, jQuery.
+A **workflow management system** for hotel room bookings: receptionists raise booking requests, admins approve them, and the front desk checks guests in and out.
+- Custom middleware for OWASP security headers with a nonce-based Content-Security-Policy.
+- Role-based access (Admin / Receptionist dashboards), guest profiles, automatic invoicing at check-out.
+- Dynamic form validation (server rules mirrored in the browser) and workflow automation (stale requests expire, no-shows flagged).
+- **Tech:** ASP.NET Core MVC (.NET 8), ASP.NET Core Identity, Entity Framework Core, SQL Server, jQuery, Bootstrap, xUnit.
 
 ---
 
-### 🤖 [Self-Driving Car – AI Simulation Project](https://github.com/talhazubairasim/self-driving-car)
-An **AI-powered self-driving car simulation** built from scratch to explore the fundamentals of **autonomous driving algorithms** and **artificial intelligence**.  
-- Developed a **neural network** that learns driving behavior through real-time feedback and mutation.  
-- Implemented **genetic algorithms** for decision optimization and steering control.  
-- Built a fully interactive simulation environment using **HTML5 Canvas** and **JavaScript**.  
-- Focused on **pathfinding**, **collision detection**, and **sensor-based decision-making**.  
-- **Tech Stack:** JavaScript, Neural Networks, Genetic Algorithms, HTML5, CSS3.
+### 🤖 [Self-Driving Car – Deep Q-Learning](https://github.com/talhazubairasim/self-driving-car)
+A car that **learns to drive with reinforcement learning**, avoiding obstacles you draw on the map.
+- Deep Q-network with experience replay in PyTorch; three sand sensors plus orientation to the goal as inputs.
+- Interactive Kivy simulator, plus a headless environment and CLI for training and evaluation.
+- Trained agent reaches the goal 25× per 5,000 steps vs. 0× untrained; tested with pytest in CI.
+- **Tech:** Python, PyTorch, NumPy, Kivy, Matplotlib.
 
-📘 *This project demonstrates my ability to design and implement AI-driven logic and visualize real-time data in a browser-based environment.*
+📘 *Started from the AI A–Z course and extended with a headless simulator, evaluation and tests.*
 
 ---
 
