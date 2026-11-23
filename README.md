@@ -72,6 +72,16 @@ A **multi-tenant SaaS** where clinics sign up, set practitioners' hours, book pa
 
 ---
 
+### 💳 [LedgerPay – Event-sourced Digital Wallet](https://github.com/talhazubairasim/ledgerpay)
+A **digital wallet** built on event sourcing and CQRS: every change is an immutable event, and balances, statements and the ledger are projections of that log.
+- Hand-written Postgres event store with optimistic concurrency; a transfer's debit, credit and completion append to three streams in one transaction.
+- **Double-entry ledger** with a live trial balance; a randomized test of 2,000 operations proves the books always net to zero.
+- Idempotent transfers (`Idempotency-Key`), fraud rules that hold suspicious transfers for back-office review, frozen accounts, daily limits.
+- Exactly-once projector that reads in commit order, read-your-writes queries, and one-click projection rebuild from the log.
+- **Tech:** .NET 8, PostgreSQL, Npgsql, CQRS, Event Sourcing, React, TypeScript, Tailwind CSS, Testcontainers, Docker, Kubernetes.
+
+---
+
 ### 🧱 [TaskBoard – Go + React](https://github.com/talhazubairasim/taskboard-go-react)
 A **Kanban-style task management system** with a Go backend and a React + TypeScript frontend.
 - GraphQL API (queries, mutations, real-time subscriptions over WebSocket) **and** a REST API, both on one service layer.
@@ -128,7 +138,7 @@ A car that **learns to drive with reinforcement learning**, avoiding obstacles y
 
 - 🔭 Building **enterprise microservices** with .NET 8 and React  
 - ⚙️ Enhancing DevOps skills with **Azure Pipelines** and **Kubernetes**  
-- 📚 Learning **Event Sourcing**, **CQRS**, and **MediatR** in-depth  
+- 📚 Going deeper on **Event Sourcing** and **CQRS** (see LedgerPay)  
 - 💡 Planning a **startup-scale SaaS platform** (stay tuned 😉)
 
 ---
