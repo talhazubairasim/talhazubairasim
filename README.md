@@ -62,6 +62,16 @@ An **e-commerce platform** split into six .NET 8 services behind a YARP API gate
 
 ---
 
+### 🏥 [ClinicDesk – Multi-tenant Clinic SaaS](https://github.com/talhazubairasim/clinicdesk)
+A **multi-tenant SaaS** where clinics sign up, set practitioners' hours, book patients, run visits and bill them, on Free / Pro / Enterprise plans.
+- Tenant isolation with EF Core global query filters plus write guards, proven by tests where one clinic tries to read and change another's data.
+- **No double booking, even under concurrent load**: a Postgres exclusion constraint on time ranges; a test fires 8 simultaneous bookings at one slot and exactly one succeeds.
+- Time-zone-aware slots, role-based policies, invoicing with tax and partial payments, pro-rata plan upgrades, reminder and billing jobs, audit trail.
+- Integration tests on real Postgres via Testcontainers; CI runs an end-to-end script against the Docker Compose stack.
+- **Tech:** .NET 8, ASP.NET Core minimal APIs, EF Core, PostgreSQL, FluentValidation, React, TypeScript, Tailwind CSS, Docker, Kubernetes.
+
+---
+
 ### 🧱 [TaskBoard – Go + React](https://github.com/talhazubairasim/taskboard-go-react)
 A **Kanban-style task management system** with a Go backend and a React + TypeScript frontend.
 - GraphQL API (queries, mutations, real-time subscriptions over WebSocket) **and** a REST API, both on one service layer.
