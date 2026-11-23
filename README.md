@@ -20,12 +20,13 @@ I’ve worked in **corporate** and **startup** environments, contributing to lar
 ## 🛠️ Tech Stack
 
 ### 💻 Backend
-- **Languages:** C#, Python, Node.js (basic)
-- **Frameworks:** ASP.NET Core (MVC, Web API, Razor), Entity Framework Core, LINQ
-- **Architectures:** RESTful APIs, Microservices, Monolith-to-Microservices migrations
+- **Languages:** C#, TypeScript, Go, Python, Node.js (basic)
+- **Frameworks:** ASP.NET Core (MVC, Web API, Minimal APIs, Razor), Entity Framework Core, LINQ, MediatR, FluentValidation, YARP
+- **Architectures:** RESTful APIs, Microservices, Event Sourcing & CQRS, Sagas, Multi-tenant SaaS, Monolith-to-Microservices migrations
 - **Authentication:** JWT, OAuth 2.0, Identity Server
-- **Caching & Messaging:** Redis, Apache Kafka
-- **ORM / Database:** Entity Framework, Dapper
+- **Caching & Messaging:** Redis, RabbitMQ, MassTransit, Apache Kafka
+- **ORM / Database:** Entity Framework, Dapper, Npgsql
+- **Testing:** xUnit, Testcontainers, Vitest, React Testing Library
 
 ### ⚛️ Frontend
 - **Libraries/Frameworks:** React.js, Blazor, jQuery
@@ -52,6 +53,35 @@ I’ve worked in **corporate** and **startup** environments, contributing to lar
 ---
 
 ## 🚀 Featured Projects
+
+### 🛒 [ShopFlow – .NET 8 Microservices E-commerce](https://github.com/talhazubairasim/shopflow)
+An **e-commerce platform** split into six .NET 8 services behind a YARP API gateway, with a React + TypeScript storefront.
+- Checkout is a **MassTransit saga over RabbitMQ**: reserve stock → charge card → confirm, with compensation (stock released, order cancelled) when a step fails.
+- CQRS with MediatR + FluentValidation, optimistic-concurrency stock reservations, Redis baskets, JWT auth with roles, OpenTelemetry and health checks.
+- CI runs unit, API and saga tests, then boots the whole stack with Docker Compose and drives real checkouts end to end; Kubernetes manifests included.
+- **Tech:** .NET 8, ASP.NET Core, MassTransit, RabbitMQ, EF Core, PostgreSQL, Redis, YARP, React, Tailwind CSS, Docker, Kubernetes.
+
+---
+
+### 🏥 [ClinicDesk – Multi-tenant Clinic SaaS](https://github.com/talhazubairasim/clinicdesk)
+A **multi-tenant SaaS** where clinics sign up, set practitioners' hours, book patients, run visits and bill them, on Free / Pro / Enterprise plans.
+- Tenant isolation with EF Core global query filters plus write guards, proven by tests where one clinic tries to read and change another's data.
+- **No double booking, even under concurrent load**: a Postgres exclusion constraint on time ranges; a test fires 8 simultaneous bookings at one slot and exactly one succeeds.
+- Time-zone-aware slots, role-based policies, invoicing with tax and partial payments, pro-rata plan upgrades, reminder and billing jobs, audit trail.
+- Integration tests on real Postgres via Testcontainers; CI runs an end-to-end script against the Docker Compose stack.
+- **Tech:** .NET 8, ASP.NET Core minimal APIs, EF Core, PostgreSQL, FluentValidation, React, TypeScript, Tailwind CSS, Docker, Kubernetes.
+
+---
+
+### 💳 [LedgerPay – Event-sourced Digital Wallet](https://github.com/talhazubairasim/ledgerpay)
+A **digital wallet** built on event sourcing and CQRS: every change is an immutable event, and balances, statements and the ledger are projections of that log.
+- Hand-written Postgres event store with optimistic concurrency; a transfer's debit, credit and completion append to three streams in one transaction.
+- **Double-entry ledger** with a live trial balance; a randomized test of 2,000 operations proves the books always net to zero.
+- Idempotent transfers (`Idempotency-Key`), fraud rules that hold suspicious transfers for back-office review, frozen accounts, daily limits.
+- Exactly-once projector that reads in commit order, read-your-writes queries, and one-click projection rebuild from the log.
+- **Tech:** .NET 8, PostgreSQL, Npgsql, CQRS, Event Sourcing, React, TypeScript, Tailwind CSS, Testcontainers, Docker, Kubernetes.
+
+---
 
 ### 🧱 [TaskBoard – Go + React](https://github.com/talhazubairasim/taskboard-go-react)
 A **Kanban-style task management system** with a Go backend and a React + TypeScript frontend.
@@ -109,7 +139,7 @@ A car that **learns to drive with reinforcement learning**, avoiding obstacles y
 
 - 🔭 Building **enterprise microservices** with .NET 8 and React  
 - ⚙️ Enhancing DevOps skills with **Azure Pipelines** and **Kubernetes**  
-- 📚 Learning **Event Sourcing**, **CQRS**, and **MediatR** in-depth  
+- 📚 Going deeper on **Event Sourcing** and **CQRS** (see LedgerPay)  
 - 💡 Planning a **startup-scale SaaS platform** (stay tuned 😉)
 
 ---
